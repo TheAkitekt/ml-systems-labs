@@ -1,0 +1,3 @@
+model,params,size_mb,flops,lat_b1_ms,lat_b128_ms,test_acc
+Plain StudentCNN (CE only),99550,0.383,2221488,0.3382,4.2143,0.9053
+"Distilled StudentCNN (T=4, alpha=0.5)",99550,0.383,2221488,0.4006,4.6747,0.9065

@@ -1,0 +1,17 @@
+method,target_sparsity,actual_sparsity,params,lat_b1_ms,lat_b128_ms,test_acc
+global_unstructured,0.0,0.0,997434,0.6064,11.9594,0.921
+global_unstructured,0.25,0.2499,997434,0.6372,12.6631,0.9303
+global_unstructured,0.5,0.4998,997434,0.6054,13.195,0.9297
+global_unstructured,0.75,0.7497,997434,0.6866,12.6551,0.9298
+global_unstructured,0.9,0.8997,997434,0.5756,12.2618,0.9305
+global_unstructured,0.95,0.9496,997434,0.5907,11.4871,0.9193
+layerwise_unstructured,0.0,0.0,997434,0.6064,11.9594,0.921
+layerwise_unstructured,0.25,0.2499,997434,0.579,11.7143,0.929
+layerwise_unstructured,0.5,0.4998,997434,0.5735,12.2452,0.9296
+layerwise_unstructured,0.75,0.7497,997434,0.5906,11.7491,0.9154
+layerwise_unstructured,0.9,0.8997,997434,0.5684,11.9482,0.8753
+layerwise_unstructured,0.95,0.9496,997434,0.6046,11.3147,0.7994
+structured_l2,0.0,0.0,997434,0.6064,11.9594,0.921
+structured_l2,0.1,0.1883,809621,0.6802,12.4107,0.93
+structured_l2,0.25,0.4371,561454,0.5412,9.5494,0.9291
+structured_l2,0.5,0.7495,249890,0.4268,5.5013,0.9254

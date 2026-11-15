@@ -1,0 +1,2 @@
+model,params,size_mb,flops,lat_b1_ms,lat_b128_ms,test_acc
+TeacherCNN (Baseline),997434,3.8086,16711488,0.7135,13.1599,0.921

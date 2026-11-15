@@ -12,6 +12,7 @@ Laboratory implementations and system benchmarks for the Machine Learning System
 | 04 | Data pipeline and quality | Leakage-free UCI Adult pipeline; schema/range validation, duplicate-conflict label audit, train-only imputation/clipping, derived feature evaluation, SHA-256 data hash, and data card. |
 | 05 | Frameworks and automatic differentiation | Scalar `Value` reverse-mode autograd engine verified against PyTorch and numerical gradients; `make_moons` speed comparison; eager vs. `torch.jit.trace` and non-contiguous tensor view benchmarks. |
 | 06 | Training pipelines and project proposal | YAML-driven MLflow pipeline on Fashion-MNIST; `torch.profiler` breakdown, `num_workers` & batch-size studies, optimizer/scheduler sweep, gradient accumulation, deterministic checkpoint resume, and individual project proposal. |
+| 07 | Compression: pruning and distillation | Oversized Fashion-MNIST CNN (~1M params); global, layer-wise, and structured L2 pruning sparsity curves, dense vs. sparse COO disk footprint, teacher-student knowledge distillation, and Chapter 9 efficiency summary. |
 
 ## Setup
 
