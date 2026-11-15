@@ -1,0 +1,7 @@
+config,final_lr,final_train_loss,val_acc,test_acc
+Adam + StepLR,0.00025,0.2125,0.907,0.9034
+Adam + CosineAnnealingLR,0.0,0.2141,0.9074,0.9031
+Adam + ReduceLROnPlateau,0.001,0.2108,0.9098,0.9051
+SGD+Momentum + StepLR,0.0025,0.2258,0.9042,0.9046
+SGD+Momentum + CosineAnnealingLR,0.0,0.2261,0.9018,0.9035
+SGD+Momentum + ReduceLROnPlateau,0.01,0.2262,0.9042,0.9083

@@ -1,0 +1,5 @@
+phase,time_ms,share_pct
+Data Loading,7895.99,64.37
+Forward Pass,1820.24,14.84
+Backward Pass,2196.42,17.91
+Optimizer Step,353.38,2.88
