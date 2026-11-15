@@ -1,0 +1,4 @@
+model,params,hand_total_flops,thop_flops,lat_b1_ms,lat_b128_ms
+MLP,235146,469504,469504,0.1147,0.3805
+CNN,20490,2063488,2063488,0.2682,3.8219
+Attention,70794,2329856,101632,0.9165,3.6485

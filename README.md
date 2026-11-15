@@ -8,6 +8,7 @@ Laboratory implementations and system benchmarks for the Machine Learning System
 | :--- | :--- | :--- |
 | 01 | Environment and first measurements | Pinned Python 3.11.8 environment; Logistic Regression vs. Random Forest on Breast Cancer Wisconsin; training/inference latency, artifact size, and peak RSS across Cloud, Edge, Mobile, and TinyML budgets. |
 | 02 | Neural network from scratch | Two-hidden-layer MLP in NumPy on `load_digits`; forward pass, cross-entropy loss, manual backpropagation, numerical gradient check, learning-rate/width sweep, and forward vs. backward pass timing. |
+| 03 | Architectures and their costs | MLP, CNN, and Transformer Attention on Fashion-MNIST; parameter counts, hand-calculated vs. `thop` FLOPs, batch-1 vs. batch-128 latency, and accuracy/cost trade-off plots. |
 
 ## Setup
 
