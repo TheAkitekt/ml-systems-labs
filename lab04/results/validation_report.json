@@ -1,0 +1,46 @@
+{
+  "rows": 48842,
+  "cols": 15,
+  "target_col_raw": "class",
+  "type_issues": [],
+  "range_violations": {
+    "age": {
+      "min": 17.0,
+      "max": 90.0,
+      "violations": 0
+    },
+    "hours-per-week": {
+      "min": 1.0,
+      "max": 99.0,
+      "violations": 0
+    },
+    "capital-gain": {
+      "min": 0.0,
+      "max": 99999.0,
+      "violations": 0
+    },
+    "capital-loss": {
+      "min": 0.0,
+      "max": 4356.0,
+      "violations": 0
+    }
+  },
+  "missing_counts": {
+    "workclass": {
+      "question_mark": 0,
+      "null_na": 2799
+    },
+    "occupation": {
+      "question_mark": 0,
+      "null_na": 2809
+    },
+    "native-country": {
+      "question_mark": 0,
+      "null_na": 857
+    }
+  },
+  "exact_duplicate_rows": 52,
+  "conflicting_feature_groups": 5,
+  "conflicting_label_rows": 10,
+  "random_50_impossible_values": 0
+}

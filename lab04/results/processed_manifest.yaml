@@ -1,0 +1,41 @@
+processed_dataset_sha256: c1dec012bc02b15e107fbc63281ae762418b3c1e556b2c8af36592268eeb37de
+train_rows_after_dedup: 34165
+train_dups_dropped: 24
+test_rows_untouched: 14653
+config:
+  seed: 42
+  dataset:
+    openml_name: adult
+    openml_version: 2
+  split:
+    test_size: 0.3
+    stratify: true
+  validation:
+    ranges:
+      age:
+      - 17
+      - 90
+      hours-per-week:
+      - 1
+      - 99
+      capital-gain:
+      - 0
+      - 99999
+      capital-loss:
+      - 0
+      - 4356
+    missing_token: '?'
+  cleaning:
+    numeric_impute: median
+    categorical_impute: most_frequent
+    outlier_clip_quantiles:
+    - 0.01
+    - 0.99
+    drop_train_duplicates: true
+  features:
+    engineered:
+    - capital_net
+    - hours_per_age
+  model:
+    type: LogisticRegression
+    max_iter: 1000
