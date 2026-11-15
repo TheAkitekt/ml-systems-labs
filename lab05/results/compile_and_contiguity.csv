@@ -1,0 +1,5 @@
+benchmark,median_us
+Eager SmallNet (B=256),254.3
+torch.jit.trace SmallNet (B=256),233.7
+Contiguous view reduction (1024x1024),248.25
+Non-contiguous transposed view (1024x1024),269.75

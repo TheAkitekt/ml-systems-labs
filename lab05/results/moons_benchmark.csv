@@ -1,0 +1,3 @@
+engine,median_train_ms,accuracy,slowdown_vs_pt
+Custom Scalar Value,1008.799,0.67,157.5
+PyTorch Tensor Autograd,6.405,0.67,1.0

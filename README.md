@@ -10,6 +10,7 @@ Laboratory implementations and system benchmarks for the Machine Learning System
 | 02 | Neural network from scratch | Two-hidden-layer MLP in NumPy on `load_digits`; forward pass, cross-entropy loss, manual backpropagation, numerical gradient check, learning-rate/width sweep, and forward vs. backward pass timing. |
 | 03 | Architectures and their costs | MLP, CNN, and Transformer Attention on Fashion-MNIST; parameter counts, hand-calculated vs. `thop` FLOPs, batch-1 vs. batch-128 latency, and accuracy/cost trade-off plots. |
 | 04 | Data pipeline and quality | Leakage-free UCI Adult pipeline; schema/range validation, duplicate-conflict label audit, train-only imputation/clipping, derived feature evaluation, SHA-256 data hash, and data card. |
+| 05 | Frameworks and automatic differentiation | Scalar `Value` reverse-mode autograd engine verified against PyTorch and numerical gradients; `make_moons` speed comparison; eager vs. `torch.jit.trace` and non-contiguous tensor view benchmarks. |
 
 ## Setup
 
