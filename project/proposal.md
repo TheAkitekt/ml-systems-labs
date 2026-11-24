@@ -1,24 +1,29 @@
-# Individual Course Project Proposal: Edge-Deployable Acoustic Keyword Spotting
+PROJECT PROPOSAL: EDGE-DEPLOYABLE SHONA KEYWORD SPOTTING
 
-- **Student Name:** Brendon Chisakuwana
-- **Student ID:** 70491
-- **Course:** Machine Learning Systems (Vistula University, Warsaw)
+Student Name: Brendon Chisakuwana
+Student ID: 70491
+Course: Machine Learning Systems (Vistula University)
 
-## 1. Problem Definition
-Always-on voice interfaces on resource-constrained edge and mobile devices must recognize spoken command keywords locally without cloud round-trips, privacy exposure, or battery drain. This project builds, optimizes, and packages an end-to-end acoustic keyword spotting (KWS) inference service that classifies 1-second audio clips into discrete voice commands (`yes`, `no`, `up`, `down`, `left`, `right`, `on`, `off`, `stop`, `go`, plus `silence` and `unknown`).
+1. PROBLEM
+Commercial offline voice assistants rarely support low-resource African languages like Shona (chiShona). Users have to rely on cloud speech APIs, which need constant internet, add network delay, and send raw audio to external servers. This project builds an offline voice-command recognizer that classifies 1-second spoken Shona clips locally on a standard CPU.
 
-## 2. Dataset & Preprocessing Pipeline
-- **Dataset:** Google Speech Commands v0.02 (`torchaudio.datasets.SPEECHCOMMANDS`, ~105,829 1-second WAV utterances sampled at 16 kHz across 35 words, mapped to the standard 12-class KWS benchmark split with official speaker-disjoint train/validation/test lists).
-- **Feature Extraction:** Deterministic conversion of 16 kHz waveforms into 40-bin log-Mel spectrograms (`n_fft=400`, `hop_length=160`, `40 x 101` time-frequency frames) with train-only mean/variance normalization and a SHA-256 dataset manifest.
+2. DATASET
+- Sources: Google FLEURS (sn_zw Shona split) and Mozilla Common Voice (sn Shona split) 16 kHz audio recordings.
+- Classes (10 total): 8 Shona commands (hongu, kwete, mira, enda, vhura, vhara, dzoka, rubatsiro), plus "unknown" (other Shona words) and "silence" (background noise).
+- Preprocessing: Audio is cut into 1-second clips and converted into 40x101 log-Mel spectrograms. Train, validation, and test splits are separated by speaker ID so the same voice never appears in both training and testing. Normalization stats are computed on the training set only, and the final split is locked with a SHA-256 hash.
 
-## 3. Target Success Metrics & Deployment Constraints
-- **Accuracy Metric:** Macro F1-score and Top-1 Test Accuracy >= **90.0%** on the 12-class test split.
-- **Latency Budget:** Median single-utterance CPU inference latency <= **50 ms** (batch size 1, warm-up followed by 100 timed runs) exposed via a FastAPI inference endpoint.
-- **Model Size Budget:** Serialized deployment artifact size <= **5 MB** (`ONNX` / quantized runtime format).
-- **Memory Budget:** Peak process RSS <= **250 MB** during inference.
+3. SUCCESS METRICS
+- Top-1 Test Accuracy: at least 88%
+- Macro F1-Score: at least 88% (so rare command classes are weighted equally against "unknown")
 
-## 4. Baseline Architecture & Planned System Optimizations
-- **Baseline Model:** Depthwise-Separable Convolutional Neural Network (DS-CNN) trained with PyTorch, YAML-driven configuration, and MLflow experiment tracking.
-- **Planned Optimization Techniques:**
-  1. **Post-Training Quantization (PTQ) & Quantization-Aware Training (QAT):** Convert FP32 weights and activations to INT8 (`ONNX Runtime` / PyTorch dynamic & static quantization) to cut artifact size by ~4x and accelerate CPU SIMD execution.
-  2. **Structured Filter Pruning & Knowledge Distillation:** Prune low-magnitude depthwise/pointwise channels and distill from a wider teacher DS-CNN to recover accuracy while meeting the <= 50 ms and <= 5 MB edge deployment budgets.
+4. DEPLOYMENT CONSTRAINTS
+- Inference Latency: 50 ms or less per 1-second clip on CPU (batch size 1, median of 100 runs after warm-up, served via FastAPI)[span_0](start_span)[span_0](end_span)
+- Model Size: 5 MB or less on disk[span_1](start_span)[span_1](end_span)
+- Peak Memory (RSS): 250 MB or less during inference
+
+5. BASELINE AND PLANNED OPTIMIZATIONS
+- Baseline Model: Depthwise-Separable Convolutional Neural Network (DS-CNN) trained in PyTorch using a YAML config file and tracked in MLflow.
+- Quantization: Convert FP32 weights and activations to INT8 (ONNX Runtime) to shrink file size by roughly 4x and speed up CPU execution[span_2](start_span)[span_2](end_span).
+- Knowledge Distillation: Train the compact DS-CNN using softened logits (T=4) from a larger CNN teacher to improve generalization across limited Shona speakers[span_3](start_span)[span_3](end_span).
+- Structured Pruning: Remove low-norm convolutional channels to reduce FLOPs and meet the 50 ms CPU latency limit[span_4](start_span)[span_4](end_span).
+
