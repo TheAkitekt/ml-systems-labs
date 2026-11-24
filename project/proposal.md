@@ -17,13 +17,13 @@ Commercial offline voice assistants rarely support low-resource African language
 - Macro F1-Score: at least 88% (so rare command classes are weighted equally against "unknown")
 
 4. DEPLOYMENT CONSTRAINTS
-- Inference Latency: 50 ms or less per 1-second clip on CPU (batch size 1, median of 100 runs after warm-up, served via FastAPI)[span_0](start_span)[span_0](end_span)
-- Model Size: 5 MB or less on disk[span_1](start_span)[span_1](end_span)
+- Inference Latency: 50 ms or less per 1-second clip on CPU (batch size 1, median of 100 runs after warm-up, served via FastAPI)
+- Model Size: 5 MB or less on disk
 - Peak Memory (RSS): 250 MB or less during inference
 
 5. BASELINE AND PLANNED OPTIMIZATIONS
 - Baseline Model: Depthwise-Separable Convolutional Neural Network (DS-CNN) trained in PyTorch using a YAML config file and tracked in MLflow.
-- Quantization: Convert FP32 weights and activations to INT8 (ONNX Runtime) to shrink file size by roughly 4x and speed up CPU execution[span_2](start_span)[span_2](end_span).
-- Knowledge Distillation: Train the compact DS-CNN using softened logits (T=4) from a larger CNN teacher to improve generalization across limited Shona speakers[span_3](start_span)[span_3](end_span).
-- Structured Pruning: Remove low-norm convolutional channels to reduce FLOPs and meet the 50 ms CPU latency limit[span_4](start_span)[span_4](end_span).
+- Quantization: Convert FP32 weights and activations to INT8 (ONNX Runtime) to shrink file size by roughly 4x and speed up CPU execution.
+- Knowledge Distillation: Train the compact DS-CNN using softened logits (T=4) from a larger CNN teacher to improve generalization across limited Shona speakers.
+- Structured Pruning: Remove low-norm convolutional channels to reduce FLOPs and meet the 50 ms CPU latency limit
 
